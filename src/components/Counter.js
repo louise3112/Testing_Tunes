@@ -13,7 +13,6 @@ const Counter = () => {
 
     return (
         <>
-            // Note the property of 'data-testid' that has been added to each html tag - this wording is required by Jest to be able to identify relevant elements.
             <h1 data-testid="counter">{counter}</h1>
             <button data-testid="button-up" onClick={incrementCounter}> Up</button>
             <button data-testid="button-down" onClick={decrementCounter}>Down</button>
