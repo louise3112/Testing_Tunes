@@ -44,12 +44,4 @@ describe("Song", () => {
         expect(songImage).toHaveProperty("alt", "Single cover for Flowers by Miley Cyrus");
     })
 
-    // // Test result of an event:
-    // it('should incerement counter on click', () => {
-    //     const upButton = container.getByTestId("button-up")
-    //     fireEvent.click(upButton)
-    //     const counterh1 = container.getByTestId("counter")
-    //     expect(counterh1.textContent).toEqual('1')
-    // })
-
 })

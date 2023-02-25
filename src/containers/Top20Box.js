@@ -1,5 +1,6 @@
 import React from "react"
 import { useState, useEffect } from "react"
+import GenreDropdown from "../components/GenreDropdown"
 import Top20List from "../components/Top20List"
 
 import styled from "styled-components"
@@ -14,49 +15,51 @@ const Container = styled.div`
 const Top20Box = () => {
 
     const [songs, setSongs] = useState([])
+    const [genreList, setGenreList] = useState({})
+    const [genreType, setGenreType] = useState(null)
 
     useEffect(() => {
-        getSongs("https://itunes.apple.com/gb/rss/topsongs/limit=20/json")
-    }, [])
+        getData(genreType)
+    }, [genreType])
 
-    const getSongs = (url) => {
-        fetch(url)
-            .then(res => res.json())
-                .then(data => setSongs(data.feed.entry))
-                .catch(err => console.error(err))
+    const getData = (genreType) => {
+        if (genreType === null) {
+            fetch("https://itunes.apple.com/gb/rss/topsongs/limit=20/json")
+                .then(res => res.json())
+                    .then(data => {
+                        setSongs(data.feed.entry)
+                        getGenres(data.feed.entry)
+                    })
+                    .catch(err => console.error(err))
+        } else {
+            fetch(`https://itunes.apple.com/gb/rss/topsongs/limit=20/genre=${genreType}/json`)
+                .then(res => res.json())
+                    .then(data => setSongs(data.feed.entry))
+                    .catch(err => console.error(err))
+        }
+    }
+
+    const getGenres = (songList) => {
+        const allGenres = {}
+        songList.forEach(song => {
+            const key = song["category"]["attributes"]["im:id"]
+            if (!allGenres[key]) {
+                allGenres[key] = song["category"]["attributes"]["label"]
+            }
+        })
+        setGenreList(allGenres)
+    }
+
+    const updateGenre = (genreID) => {
+        setGenreType(genreID)
     }
 
     return(
         <Container>
+            {genreList !== {} && <GenreDropdown genres={genreList} updateGenre={updateGenre}/>}
             {songs[0] && <Top20List songs={songs}/>}
         </Container>
     )
 }
 
 export default Top20Box
-
-
-// const genres = [
-//     {name: "All", url: "https://itunes.apple.com/gb/rss/topsongs/limit=20/json"},
-//     {name: "Rock", url: "https://itunes.apple.com/gb/rss/topsongs/limit=20/genre=21/json"},
-//     {name: "Dance", url: "https://itunes.apple.com/gb/rss/topsongs/limit=20/genre=17/json"},
-//     {name: "Country", url: "https://itunes.apple.com/gb/rss/topsongs/limit=20/genre=6/json"}
-//   ]
-
-// const handleSelectChange = event => {
-//   loadSongs(event.target.value);
-// }
-
-// return (
-//   <>
-//     <TitleBar
-//       handleSelectChange={handleSelectChange}
-//       genres={genres}
-//     />
-//     <Chart
-//       songs={songs}
-//       url={genres[0].url}
-//       handleSelectChange={handleSelectChange}
-//     />
-//   </>
-// );

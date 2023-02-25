@@ -10,13 +10,14 @@ describe('App', () => {
         app = render(< App />)
     })
 
-    it('app has a title', () => {
+    it('has a title', () => {
         const title = app.getByTestId("Title")
         expect(title.textContent).toEqual("Testing Tunes")
     })
 
-    it('app has a footer', () => {
+    it('has a footer', () => {
         const footer = app.getByTestId("Footer")
         expect(footer.textContent).toEqual("Data taken from iTunes API")
     })
 });
+
