@@ -43,12 +43,40 @@ describe('App', () => {
         cy.get('.play-song:first').click()
     })
 
+    it("play / pause icon should change on click", () => {
+        cy.get('.play-pause:first').should('have.attr', 'alt', 'play button')
+        cy.get('.play-song:first').click()
+        cy.get('.play-pause:first').should('have.attr', 'alt', 'pause button')
+        cy.wait(2000)
+        cy.get('.play-song:first').click()
+        cy.get('.play-pause:first').should('have.attr', 'alt', 'play button')
+    })
+
     it("should be able to change song being played", () => {
         cy.get('.play-song:first').click()
         cy.wait(2000)
         cy.get('.play-song:last').click()
         cy.wait(2000)
         cy.get('.play-song:last').click()
+    })
+
+    it("play / pause icon should change when new song selected", () => {
+        cy.get('.play-song:first').click()
+        cy.wait(2000)
+        cy.get('.play-pause:first').should('have.attr', 'alt', 'pause button')
+        cy.get('.play-pause:last').should('have.attr', 'alt', 'play button')
+        cy.get('.play-song:last').click()
+        cy.get('.play-pause:first').should('have.attr', 'alt', 'play button')
+        cy.get('.play-pause:last').should('have.attr', 'alt', 'pause button')
+        cy.wait(2000)
+        cy.get('.play-song:last').click()
+    })
+
+    it("should pause music when dropdown value changes", () => {
+        cy.get('.play-song:first').click()
+        cy.wait(2000)
+        cy.get('#genres').select(1)
+        cy.get('audio').should('have.attr', 'alt', 'Playing: false')
     })
 
     it("has a footer", () => {

@@ -17,9 +17,13 @@ const Top20Box = () => {
     const [songs, setSongs] = useState([])
     const [genreList, setGenreList] = useState({})
     const [genreType, setGenreType] = useState(null)
+    const [isPlaying, setIsPlaying] = useState(null)
 
+    console.log(isPlaying)
+    
     useEffect(() => {
         getData(genreType)
+        setIsPlaying(false)
     }, [genreType])
 
     const getData = (genreType) => {
@@ -54,10 +58,14 @@ const Top20Box = () => {
         setGenreType(genreID)
     }
 
+    const updatePlayingStatus = (status) => {
+        setIsPlaying(status)
+    }
+
     return(
         <Container>
             {genreList !== {} && <GenreDropdown genres={genreList} updateGenre={updateGenre}/>}
-            {songs[0] && <Top20List songs={songs}/>}
+            {songs[0] && <Top20List songs={songs} isPlaying={isPlaying} updatePlayingStatus={updatePlayingStatus}/>}
         </Container>
     )
 }

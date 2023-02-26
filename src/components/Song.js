@@ -1,6 +1,8 @@
 import React from "react"
 // import { useState, useRef, useEffect } from "react"
 import playButton from "../images/playButton.png"
+import pauseButton from "../images/pauseButton.png"
+// <a target="_blank" href="https://icons8.com/icon/87015/play-button-circled">Play Button Circled</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 
 import styled from "styled-components"
 
@@ -55,9 +57,9 @@ const SingleImg = styled.img`
     display: block;
     width: 100%;
 `
-const PlayButton = styled.img`
+const PlayPauseButton = styled.img`
     position: absolute;
-    width: 100%;
+    width: 80%;
     opacity: 0.7;
     &:hover {opacity: 1;}
 `
@@ -65,10 +67,11 @@ const PlayButton = styled.img`
 const Song = ({song, position, controlAudio, isPlaying, audioLink}) => {
 
     const altText = `${song["im:name"]["label"]} by ${song["im:artist"]["label"]}`
+    const songCurrentlyPlaying = (isPlaying && audioLink === song["link"][1]["attributes"]["href"])
 
     const handleClick = () => {
         let playStatus = true
-        if (isPlaying && audioLink === song["link"][1]["attributes"]["href"]) {
+        if (songCurrentlyPlaying) {
             playStatus = false
         } 
         controlAudio(song["link"][1]["attributes"]["href"], playStatus)
@@ -84,9 +87,9 @@ const Song = ({song, position, controlAudio, isPlaying, audioLink}) => {
                     <Title data-testid="song-title" className="song-title">{song["im:name"]["label"]}</Title>
                     <Artist data-testid="song-artist" className="song-artist">{song["im:artist"]["label"]}</Artist>
                 </SongDetails>
-                <Image onClick={handleClick} className="play-song">
+                <Image data-testid="audio-button" onClick={handleClick} className="play-song">
                     <SingleImg data-testid="song-image" className="song-image" src={song["im:image"][0]["label"]} alt={"Play " + altText}/>
-                    <PlayButton src={playButton} />
+                    <PlayPauseButton data-testid="play-pause" className="play-pause" src={songCurrentlyPlaying ? pauseButton : playButton} alt={songCurrentlyPlaying ? "pause button" : "play button"}/>
                 </Image>
             </Container>
         </>

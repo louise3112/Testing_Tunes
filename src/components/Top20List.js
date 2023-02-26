@@ -12,9 +12,8 @@ const SongList = styled.ul`
     border-bottom: none;
 `
 
-const Top20List = ({songs}) => {
+const Top20List = ({songs, isPlaying, updatePlayingStatus}) => {
 
-    const [isPlaying, setIsPlaying] = useState(null)
     const [audioLink, setAudioLink] = useState("")
     const audioSrc = useRef(null)
 
@@ -28,7 +27,7 @@ const Top20List = ({songs}) => {
 
     const controlAudio = (songURL, playStatus) => {
         setAudioLink(songURL)
-        setIsPlaying(playStatus)
+        updatePlayingStatus(playStatus)
     }
 
     const songComponentArray = songs.map((song, index) => {
@@ -37,7 +36,7 @@ const Top20List = ({songs}) => {
 
     return (
         <SongList data-testid="song-list">
-            <audio data-testid="song-audio" className="song-audio" ref={audioSrc} src={audioLink} />
+            <audio data-testid="song-audio" ref={audioSrc} src={audioLink} alt={"Playing: " + isPlaying}/>
             {songComponentArray}
         </SongList>
     )
