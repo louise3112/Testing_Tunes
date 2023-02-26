@@ -17,3 +17,13 @@ Run the client:
 ```
 npm start
 ```
+
+Run unit tests:
+```
+npm run test
+```
+
+Run end-to-end tests in Cypress:
+```
+npm run test:e2e
+```
