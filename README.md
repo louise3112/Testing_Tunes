@@ -20,7 +20,7 @@ Run the client:
 npm start
 ```
 
-Run unit tests:
+Run unit tests using Jest:
 ```
 npm run test
 ```
