@@ -9,12 +9,12 @@ const Container = styled.div`
     z-index: -1;
     display: flex;
     justify-content: space-between;
-    column-gap: 1em;
+    column-gap: 2%;
     align-items: center;
     margin-top: 1em;
 `
 const TextBox = styled.div`
-    width: 83em;
+    flex-grow: 1;
     height: 90%;
     background-color: #f7ea71;
     position: relative;
@@ -30,8 +30,8 @@ const FooterText = styled.p`
     margin:0;
 `
 const Circle = styled.div`
-    height: 2.5em;
-    width: 2.5em;
+    aspect-ratio: 1 / 1;
+    height: 90%;
     border-radius: 50%;
     background-color: #f7ea71;
     position: relative;

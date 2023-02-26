@@ -1,5 +1,3 @@
-// app.spec.js
-
 describe('App', () => {
 
     beforeEach(() => {
@@ -9,8 +7,15 @@ describe('App', () => {
     })
 
     it("has a title", () => {
-        const title = cy.get('#title');
-        title.should("contain", "Testing Tunes");
+        cy.get('#title').should("contain", "Testing Tunes")
+    })
+
+    it("has a dropdown label", () => {
+        cy.get('#label').should("contain", "Genre:")
+    })
+
+    it("has a dropdown list that starts on All", () => {
+        cy.get('#genres').should("contain", "All")
     })
 
     it("displays details for 20 songs", () => {
@@ -20,9 +25,20 @@ describe('App', () => {
         cy.get('.song-image').should('have.length', 20)
     })
 
+    it("should be able to change the dropdown value selected", () => {
+        cy.get('#genres').select(1).should('not.be.null')
+    })
+
+    it("displays details for 20 songs after dropdown change", () => {
+        cy.get('#genres').select(1)
+        cy.get('.song-position').should('have.length', 20)
+        cy.get('.song-title').should('have.length', 20)
+        cy.get('.song-artist').should('have.length', 20)
+        cy.get('.song-image').should('have.length', 20)
+    })
+
     it("has a footer", () => {
-        const footer = cy.get('#footer');
-        footer.should("contain", "Data taken from iTunes API");
+        cy.get('#footer').should("contain", "Data taken from iTunes API")
     })
 
 

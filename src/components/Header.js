@@ -9,21 +9,21 @@ const Container = styled.div`
     z-index: -1;
     display: flex;
     justify-content: space-between;
-    column-gap: 1em;
+    column-gap: 3%;
     align-items: center;
     margin-bottom: 1em;
 `
 const Title = styled.h1`
+    flex-grow: 1;
     font-family: 'Tilt Warp', cursive;
     font-size: 4.5em;
     text-align: center;
-    width: 17.5em;
     background-color: #f7ea71;
     position: relative;
 `
 const Circle = styled.div`
-    height: 5.5em;
-    width: 5.5em;
+    aspect-ratio: 1 / 1;
+    height: 90%;
     border-radius: 50%;
     background-color: #f7ea71;
     position: relative;

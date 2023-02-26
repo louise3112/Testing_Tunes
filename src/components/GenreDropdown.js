@@ -34,7 +34,7 @@ const GenreDropdown = ({genres, updateGenre}) => {
 
     return(
         <Form>
-            <Label data-testid="dropdown-label" id="dropdown" name="genres">Genre:</Label>
+            <Label data-testid="dropdown-label" id="label" name="genres">Genre:</Label>
             <Dropdown data-testid="dropdown" id="genres" onChange={handleChange} >
                 <OptionText data-testid="dropdown-option" value={null} key={null}>All</OptionText>
                 {genreOptions}
