@@ -6,10 +6,22 @@ import styled from "styled-components"
 
 const SongList = styled.ul`
     padding: 0;
-    width: 80%;
+    width: 75%;
     background-color: #e49f45;
     border: solid black 10px;
     border-bottom: none;
+
+    @media only screen and (max-width: 900px) {
+        border: solid black 8px;
+        border-bottom: none;
+        width: 85%;
+    }
+
+    @media only screen and (max-width: 600px) {
+        border: solid black 6px;
+        border-bottom: none;
+        width: 90%;
+    }
 `
 
 const Top20List = ({songs, isPlaying, updatePlayingStatus}) => {

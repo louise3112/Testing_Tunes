@@ -1,5 +1,4 @@
 import React from "react"
-// import { useState, useRef, useEffect } from "react"
 import playButton from "../images/playButton.png"
 import pauseButton from "../images/pauseButton.png"
 // <a target="_blank" href="https://icons8.com/icon/87015/play-button-circled">Play Button Circled</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
@@ -11,19 +10,48 @@ const Container = styled.li`
     justify-content: space-between;
     align-items: center;
     border-bottom: black solid 10px;
+    height: 6em;
+
+    @media only screen and (max-width: 900px) {
+        border-bottom: solid black 8px;
+        height: 5em;
+    }
+
+    @media only screen and (max-width: 600px) {
+        border-bottom: solid black 6px;
+        height: 4em;
+    }
 `
 const PositionBox = styled.div`
     border-right: solid black 10px;
     width: 6em;
-    height: 6.2em;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media only screen and (max-width: 900px) {
+        border-right: solid black 8px;
+        width: 4.5em;
+    }
+
+    @media only screen and (max-width: 600px) {
+        border-right: solid black 6px;
+        width: 3em;
+    }
 `
 const Position = styled.h2`
     font-family: 'Tilt Warp', cursive;
     font-size: 3em;
     margin: 0;
+
+    @media only screen and (max-width: 900px) {
+        font-size: 2em;
+    }
+
+    @media only screen and (max-width: 600px) {
+        font-size: 1.5em;
+    }
 `
 const SongDetails = styled.div`
     flex-grow: 1;
@@ -35,17 +63,33 @@ const Title = styled.p`
     font-family: 'Tilt Neon', cursive;
     font-size: 1.5em;
     font-weight: bold;
+
+    @media only screen and (max-width: 900px) {
+        font-size: 1.2em;
+    }
+
+    @media only screen and (max-width: 600px) {
+        font-size: 1.1em;
+    }
 `
 const Artist = styled.p`
     margin: 0em 0em 0em 1.2em;
     font-family: 'Tilt Neon', cursive;
     font-size: 1.25em;
     color: rgb(70, 70, 70);
+
+    @media only screen and (max-width: 900px) {
+        font-size: 1.1em;
+    }
+
+    @media only screen and (max-width: 600px) {
+        font-size: 1em;
+    }
 `
 const Image = styled.div`
-    width: 5em;
-    height: 5em;
-    margin: 0.5em 0.5em 0.5em 0.5em;
+    aspect-ratio: 1 / 1;
+    height: 80%;
+    margin: 0em 0.5em 0em 0.5em;
     border: solid rgb(120, 120, 120);
     display: flex;
     justify-content: center;

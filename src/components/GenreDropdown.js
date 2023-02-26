@@ -3,11 +3,23 @@ import styled from "styled-components"
 
 const Form = styled.form`
     margin: 0.5em 0em 0.5em 0em;
+
+    @media only screen and (max-width: 900px) {
+        margin: 0;
+    }
 `
 const Label = styled.label`
     font-family: 'Tilt Neon', cursive;
     font-size: 2.2em;
     padding: 0.2em 0.5em 0.2em 0.5em;
+
+    @media only screen and (max-width: 900px) {
+        font-size: 1.8em;
+    }
+
+    @media only screen and (max-width: 600px) {
+        font-size: 1.2em;
+    }
 `
 const Dropdown = styled.select`
     font-family: 'Tilt Neon', cursive;
@@ -15,11 +27,29 @@ const Dropdown = styled.select`
     border: solid black 5px;
     padding: 0.2em 0em 0.2em 0.5em;
     width: 10em;
+
+    @media only screen and (max-width: 900px) {
+        font-size: 1.6em;
+        border: solid black 4px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        font-size: 1em;
+        border: solid black 3px;
+    }
 `
 const OptionText = styled.option`
     font-family: 'Tilt Neon', cursive;
     font-size: 2em;
     padding: 0.2em 0em 0.2em 0.5em;
+
+    @media only screen and (max-width: 900px) {
+        font-size: 1.6em;
+    }
+
+    @media only screen and (max-width: 600px) {
+        font-size: 1em;
+    }
 `
 
 const GenreDropdown = ({genres, updateGenre}) => {

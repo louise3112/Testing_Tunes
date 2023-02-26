@@ -1,6 +1,6 @@
 import React from "react"
 import Song from "../components/Song"
-import { render, fireEvent } from "@testing-library/react"
+import { render } from "@testing-library/react"
 
 describe("Song", () => {
 

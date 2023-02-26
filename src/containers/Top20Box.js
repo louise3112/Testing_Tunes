@@ -18,8 +18,6 @@ const Top20Box = () => {
     const [genreList, setGenreList] = useState({})
     const [genreType, setGenreType] = useState(null)
     const [isPlaying, setIsPlaying] = useState(null)
-
-    console.log(isPlaying)
     
     useEffect(() => {
         getData(genreType)
