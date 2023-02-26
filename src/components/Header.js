@@ -44,6 +44,10 @@ const Title = styled.h1`
     @media only screen and (max-width: 600px) {
         font-size: 2em;
     }
+
+    @media only screen and (max-width: 530px) {
+        font-size: 1.5em;
+    }
 `
 const Circle = styled.div`
     aspect-ratio: 1 / 1;

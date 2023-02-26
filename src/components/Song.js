@@ -10,34 +10,21 @@ const Container = styled.li`
     justify-content: space-between;
     align-items: center;
     border-bottom: black solid 10px;
-    height: 6em;
 
     @media only screen and (max-width: 900px) {
         border-bottom: solid black 8px;
-        height: 5em;
     }
 
     @media only screen and (max-width: 600px) {
         border-bottom: solid black 6px;
-        height: 4em;
     }
 `
 const PositionBox = styled.div`
     flex: 0 0 auto;
-    border-right: solid black 10px;
     width: 10%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    @media only screen and (max-width: 900px) {
-        border-right: solid black 8px;
-    }
-
-    @media only screen and (max-width: 600px) {
-        border-right: solid black 6px;
-    }
 `
 const Position = styled.h2`
     font-family: 'Tilt Warp', cursive;
@@ -51,14 +38,31 @@ const Position = styled.h2`
     @media only screen and (max-width: 600px) {
         font-size: 1.5em;
     }
+
+    @media only screen and (max-width: 530px) {
+        font-size: 1.2em;
+    }
 `
 const SongDetails = styled.div`
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
+    padding: 0em 0em 0em 1em;
+    border-left: solid black 10px;
+
+    @media only screen and (max-width: 900px) {
+        border-left: solid black 8px;
+        padding: 0em 0em 0em 0.8em;
+    }
+
+    @media only screen and (max-width: 600px) {
+        border-left: solid black 6px;
+        padding: 0em 0em 0em 0.6em;
+    }
 `
 const Title = styled.p`
-    margin: 0em 0em 0.3em 1em;
+    margin: 0;
+    padding: 0.5em 0em 0.3em 0em;
     font-family: 'Tilt Neon', cursive;
     font-size: 1.5em;
     font-weight: bold;
@@ -76,7 +80,8 @@ const Title = styled.p`
     }
 `
 const Artist = styled.p`
-    margin: 0em 0em 0em 1.2em;
+    margin: 0;
+    padding: 0em 0em 0.5em 0em;
     font-family: 'Tilt Neon', cursive;
     font-size: 1.25em;
     color: rgb(70, 70, 70);
@@ -94,8 +99,9 @@ const Artist = styled.p`
     }
 `
 const Image = styled.div`
+    flex: 0 0 auto;
     aspect-ratio: 1 / 1;
-    height: 80%;
+    width: 4em;
     margin: 0em 0.5em 0em 0.5em;
     border: solid rgb(120, 120, 120);
     display: flex;
@@ -103,6 +109,18 @@ const Image = styled.div`
     align-items: center;
     cursor: pointer;
     position: relative;
+
+    @media only screen and (max-width: 900px) {
+        width: 3.2em;
+    }
+
+    @media only screen and (max-width: 700px) {
+        width: 3em;
+    }
+
+    @media only screen and (max-width: 530px) {
+        width: 2em;
+    }
 `
 const SingleImg = styled.img`
     display: block;
