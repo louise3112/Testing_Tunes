@@ -7,13 +7,12 @@ describe("Song", () => {
 
     let component
 
-    // Mount the component so it is fresh for each test:
     beforeEach(() => {
         const testSongList = [{
             "im:name": {"label": "Flowers"},
             "im:image": [{"label": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/9e/80/c7/9e80c757-6994-4338-9e79-b92d5f75f788/196589561725.jpg/170x170bb.png","attributes": {"height": "170"}}],
             "im:collection": {"im:name": {"label": "Endless Summer Vacation"}},
-            "link": [{"attributes": {"href": "https://music.apple.com/gb/album/flowers/1663973555?i=1663973562&uo=2"}},],
+            "link": [{}, {"attributes": {"href": "https://music.apple.com/gb/album/flowers/1663973555?i=1663973562&uo=2"}}],
             "id": {"attributes": {"im:id": "1663973562"}},
             "im:artist": {"label": "Miley Cyrus"},
             "category": {"attributes": {"im:id": "14","label": "Pop"}},
@@ -41,7 +40,12 @@ describe("Song", () => {
     it('song image must have src and alt attributes', () => {
         const songImage = component.getByTestId("song-image")
         expect(songImage).toHaveProperty("src", "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/9e/80/c7/9e80c757-6994-4338-9e79-b92d5f75f788/196589561725.jpg/170x170bb.png")
-        expect(songImage).toHaveProperty("alt", "Single cover for Flowers by Miley Cyrus");
+        expect(songImage).toHaveProperty("alt", "Play Flowers by Miley Cyrus");
+    })
+
+    it('song audio must have src attribute', () => {
+        const songAudio = component.getByTestId("song-audio")
+        expect(songAudio).toHaveProperty("src", "https://music.apple.com/gb/album/flowers/1663973555?i=1663973562&uo=2");
     })
 
 })

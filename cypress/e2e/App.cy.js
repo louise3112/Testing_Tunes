@@ -37,11 +37,22 @@ describe('App', () => {
         cy.get('.song-image').should('have.length', 20)
     })
 
+    it("should be able to play and pause song on click", () => {
+        cy.get('.play-song:first').click()
+        cy.wait(2000)
+        cy.get('.play-song:first').click()
+    })
+
+    it("should be able to change song being played", () => {
+        cy.get('.play-song:first').click()
+        cy.wait(2000)
+        cy.get('.play-song:last').click()
+        cy.wait(2000)
+        cy.get('.play-song:last').click()
+    })
+
     it("has a footer", () => {
         cy.get('#footer').should("contain", "Data taken from iTunes API")
     })
-
-
-
 
 })
