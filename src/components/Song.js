@@ -23,8 +23,9 @@ const Container = styled.li`
     }
 `
 const PositionBox = styled.div`
+    flex: 0 0 auto;
     border-right: solid black 10px;
-    width: 6em;
+    width: 10%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -32,12 +33,10 @@ const PositionBox = styled.div`
 
     @media only screen and (max-width: 900px) {
         border-right: solid black 8px;
-        width: 4.5em;
     }
 
     @media only screen and (max-width: 600px) {
         border-right: solid black 6px;
-        width: 3em;
     }
 `
 const Position = styled.h2`
@@ -54,7 +53,7 @@ const Position = styled.h2`
     }
 `
 const SongDetails = styled.div`
-    flex-grow: 1;
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
 `
@@ -68,8 +67,12 @@ const Title = styled.p`
         font-size: 1.2em;
     }
 
-    @media only screen and (max-width: 600px) {
-        font-size: 1.1em;
+    @media only screen and (max-width: 700px) {
+        font-size: 1em;
+    }
+
+    @media only screen and (max-width: 530px) {
+        font-size: 0.8em;
     }
 `
 const Artist = styled.p`
@@ -82,8 +85,12 @@ const Artist = styled.p`
         font-size: 1.1em;
     }
 
-    @media only screen and (max-width: 600px) {
-        font-size: 1em;
+    @media only screen and (max-width: 700px) {
+        font-size: 0.9em;
+    }
+
+    @media only screen and (max-width: 530px) {
+        font-size: 0.6em;
     }
 `
 const Image = styled.div`

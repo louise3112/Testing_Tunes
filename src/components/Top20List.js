@@ -17,7 +17,7 @@ const SongList = styled.ul`
         width: 85%;
     }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 700px) {
         border: solid black 6px;
         border-bottom: none;
         width: 90%;
